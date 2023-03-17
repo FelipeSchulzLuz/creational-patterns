@@ -1,13 +1,22 @@
 package br.com.cod3r.factory.apple.factory;
 
+import br.com.cod3r.factory.apple.model.IPhone;
+
 public abstract class IPhoneFactory {
 
-    abstract IPhone orderIPhone11() {}
+    public IPhone orderIPhone() {
+        IPhone device = null;
 
-    abstract IPhone orderIPhone11Pro() {}
+       device = createIPhone();
 
-    abstract IPhone orderIPhoneX() {}
-    
-    abstract IPhone orderIPhoneXSMax() {}
+       device.getHardware();
+       device.assemble();
+       device.certificates();
+       device.pack();
+
+        return device;
+    }
+
+    protected abstract IPhone createIPhone();
 
 }
